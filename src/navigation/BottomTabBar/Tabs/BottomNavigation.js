@@ -6,20 +6,29 @@ import Home from '../Tabs/Home';
 import Profile from '../Tabs/Profile';
 import Menu from '../Tabs/Menu';
 import Orders from '../Tabs/Orders';
+import CustomTab from '../Tabs/CustomTabs';
+
 
 const BottomNavigation = () => {
 
     const BottomTab = createBottomTabNavigator();
 
     return (
-        <NavigationContainer>
-            <BottomTab.Navigator>
-                <BottomTab.Screen name="Home" component={Home} />
-                <BottomTab.Screen name="Profile" component={Profile} />
-                <BottomTab.Screen name="Menu" component={Menu} />
-                <BottomTab.Screen name="Orders" component={Orders} />
-            </BottomTab.Navigator>
-        </NavigationContainer>
+
+        <BottomTab.Navigator
+            tabBar={(props) => (
+                <CustomTab {...props} />
+            )}
+            screenOptions={{
+                headerShown: false,
+            }}
+        >
+            <BottomTab.Screen name="Home" component={Home} />
+            <BottomTab.Screen name="Profile" component={Profile} />
+            <BottomTab.Screen name="Menu" component={Menu} />
+            <BottomTab.Screen name="Orders" component={Orders} />
+        </BottomTab.Navigator>
+
     )
 }
 

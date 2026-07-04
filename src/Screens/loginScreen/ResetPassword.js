@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 // import Card from '../components/Card'
-import AuthHeader from '../components/AuthHeader'
+import AuthHeader from '../../components/AuthHeader'
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons'
-import InputField from '../components/InputField'
-import CustomButton from '../components/CustomButton'
+import InputField from '../../components/InputField'
+import CustomButton from '../../components/CustomButton'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod";

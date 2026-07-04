@@ -1,10 +1,10 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from '../../Screens/loginScreenLoginScreen'
-import ForgetPasswordScreen from '../../Screens/ForgetPasswordScreen'
-import OtpVerification from '../../Screens/OtpVerification'
-import ResetPassword from '../../Screens/ResetPassword'
+import LoginScreen from '../../Screens/loginScreen/LoginScreen'
+import ForgetPasswordScreen from '../../Screens/loginScreen/ForgetPasswordScreen'
+import OtpVerification from '../../Screens/loginScreen/OtpVerification'
+import ResetPassword from '../../Screens/loginScreen/ResetPassword'
 
 const Stack = createNativeStackNavigator();
 
