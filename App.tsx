@@ -1,8 +1,9 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 // import AppNavigator from './src/navigation/Stack/AppNavigation';
-import RootNavigation from './src/navigation/Stack/RootNavigation' 
+// import RootNavigation from './src/navigation/Stack/RootNavigation' 
 import { SafeAreaView } from 'react-native-safe-area-context';
+import DashboardScreen from './src/Screens/homeScreen/DashboardScreen'
 
 
 
@@ -12,7 +13,8 @@ const App = () => {
     <SafeAreaView style={{ flex:1 }}>
 
         {/* <AppNavigator /> */}
-        <RootNavigation />
+        {/* <RootNavigation /> */}
+        <DashboardScreen />
         
       
     </SafeAreaView>
@@ -20,4 +22,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App    

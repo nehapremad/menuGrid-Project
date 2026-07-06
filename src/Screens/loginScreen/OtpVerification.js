@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, AppState } from "react-native";
-import AuthHeader from "../components/AuthHeader";
+import AuthHeader from "../../../src/components/AuthHeader";
 import MaterialDesignIcons from "@react-native-vector-icons/material-design-icons";
-import CustomButton from "../components/CustomButton";
+import CustomButton from "../../../src/components/CustomButton";
 import { Controller, useForm } from "react-hook-form";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { z } from "zod";
@@ -62,9 +62,9 @@ const OtpVerification = () => {
             otp: "",
         },
     })
-    useEffect(() => {
-        startTimer();
-    }, []);
+    // useEffect(() => {
+    //     startTimer();
+    // }, []);
 
     useEffect(() => {
         const sub = AppState.addEventListener("change", (state) => {

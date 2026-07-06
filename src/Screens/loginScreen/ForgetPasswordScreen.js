@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import AuthHeader from '../components/AuthHeader'
-import Card from '../components/Card'
-import InputField from '../components/InputField'
-import CustomButton from '../components/CustomButton'
+import AuthHeader from '../../../src/components/AuthHeader'
+import Card from '../../../src/components/Card'
+import InputField from '../../../src/components/InputField'
+import CustomButton from '../../../src/components/CustomButton'
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons'
 import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form'
