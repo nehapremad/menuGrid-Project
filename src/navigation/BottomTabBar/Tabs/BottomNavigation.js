@@ -7,6 +7,7 @@ import Profile from '../Tabs/Profile';
 import Menu from '../Tabs/Menu';
 import Orders from '../Tabs/Orders';
 import CustomTab from '../Tabs/CustomTabs';
+import DashboardScreen from '../../../Screens/homeScreen/DashboardScreen';
 
 
 const BottomNavigation = () => {
@@ -23,7 +24,7 @@ const BottomNavigation = () => {
                 headerShown: false,
             }}
         >
-            <BottomTab.Screen name="Home" component={Home} />
+            <BottomTab.Screen name="Home" component={DashboardScreen} />
             <BottomTab.Screen name="Profile" component={Profile} />
             <BottomTab.Screen name="Menu" component={Menu} />
             <BottomTab.Screen name="Orders" component={Orders} />

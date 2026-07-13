@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: '#fff',
-    height: 80,
+    height: 60,
     borderRadius: 40,
     marginHorizontal: 10,
     marginBottom: 20,
@@ -77,21 +77,21 @@ const styles = StyleSheet.create({
 
   activeButton: {
     backgroundColor: '#323b60',
-     width: 75,
-    height: 60,
+     width: 65,
+    height: 50,
     borderRadius: 30,
 
   },
 
   icon: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
     resizeMode: 'contain',
   },
 
   label: {
     marginTop: 5,
-    fontSize: 15,
+    fontSize: 13,
 
   },
 });

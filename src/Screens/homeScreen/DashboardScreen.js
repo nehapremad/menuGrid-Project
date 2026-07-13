@@ -4,8 +4,11 @@ import MaterialDesignIcons from '@react-native-vector-icons/material-design-icon
 import MaterialCommunityIcons from '@react-native-vector-icons/material-design-icons'
 import AntDesign from '@react-native-vector-icons/ant-design'
 import Ionicons from "@react-native-vector-icons/ionicons";
+import { useNavigation } from '@react-navigation/native'
 
 const DashboardScreen = () => {
+
+    const navigation = useNavigation();
 
     const data = [
         {
@@ -41,7 +44,8 @@ const DashboardScreen = () => {
             <View style={styles.container}>
                 <View style={styles.header}>
                     <View style={styles.headerImage}>
-                        <Image style={{ height: 40, width: 40 }} source={require('../../assets/Image/f7232c625dbe8631ec2f4c243fa12bd996bed4cf.png')} />
+                        <Image style={{ height: 40, width: 40 }}
+                         source={require('../../assets/Image/f7232c625dbe8631ec2f4c243fa12bd996bed4cf.png')} />
                         <Text style={styles.menuText}>MENUGRID</Text>
                     </View>
                 </View>
@@ -112,7 +116,8 @@ const DashboardScreen = () => {
 
                 <View style={styles.stockHeader}>
                     <Text style={styles.title}>Out of Stock</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity 
+                    onPress={() => navigation.navigate('OutOfStock')}>
                         <Text style={styles.viewMore}>View More</Text>
                     </TouchableOpacity>
                 </View>
@@ -152,7 +157,8 @@ const DashboardScreen = () => {
 
                 <View style={styles.expiryHeader}>
                     <Text style={styles.title}>Near Expiry</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={() => navigation.navigate('NearExpiry')}>
                         <Text style={styles.viewMore}>View More</Text>
                     </TouchableOpacity>
                 </View>
@@ -432,7 +438,7 @@ const styles = StyleSheet.create({
     buttonRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 30,
+        marginBottom: 15,
     },
 
     button: {
@@ -460,7 +466,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 8,
+        marginBottom: 5,
         marginHorizontal: 20,
     },
 
@@ -475,7 +481,7 @@ const styles = StyleSheet.create({
 
 
     title: {
-        fontSize: 30,
+        fontSize: 22,
         fontWeight: '600',
         color: '#222',
     },

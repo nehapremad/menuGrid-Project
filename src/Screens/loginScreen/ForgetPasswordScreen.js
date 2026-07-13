@@ -163,7 +163,9 @@ const styles = StyleSheet.create({
     color: '#344075',
     marginBottom: 15,
 
-  }, error: {
+  }, 
+  
+  error: {
     color: 'red',
     marginTop: 5,
     marginBottom: 10,

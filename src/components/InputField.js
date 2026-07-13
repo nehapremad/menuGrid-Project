@@ -35,9 +35,9 @@ export default InputField
 
 const styles = StyleSheet.create({
      label: {
-        color: "#757171f8",
+        color: "#46464E",
         fontSize: 15,
-        fontWeight: "bold",
+        fontWeight: "400",
         marginBottom: 5,
         marginTop: 10,
         paddingHorizontal: 15,

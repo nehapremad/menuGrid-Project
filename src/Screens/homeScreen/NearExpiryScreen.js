@@ -1,24 +1,34 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import AntDesign from "@react-native-vector-icons/ant-design";
 import MaterialCommunityIcons from '@react-native-vector-icons/material-design-icons'
 import Ionicons from '@react-native-vector-icons/ionicons'
+import { useNavigation } from '@react-navigation/native';
 
 
 const NearExpiryScreen = () => {
+
+  const [selectedButton, setSelectedButton] = useState('All item')
+
+  const navigation = useNavigation();
+
   return (
-    <ScrollView style={{ flex: 1 }}>
+    <ScrollView>
       <View style={styles.container}>
         <View style={styles.header}>
 
-          <View style={styles.childHeader}>
-            <AntDesign style={styles.leftArrowIcon}
-              name="arrow-left"
-              size={18}
-              color="#000" />
-            <Text style={styles.nearText}>Near Expiry</Text>
+          <TouchableOpacity
+            onPress={() => navigation.goBack('NearExpiry')}>
+            <View style={styles.childHeader}>
 
-          </View>
+              <AntDesign style={styles.leftArrowIcon}
+                name="arrow-left"
+                size={18}
+                color="#000" />
+              <Text style={styles.nearText}>Near Expiry</Text>
+
+            </View>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.alertContainer}>
@@ -41,139 +51,189 @@ const NearExpiryScreen = () => {
             <Text style={styles.alertText}>
               <Text style={styles.redText}>5 items</Text> expiring within 24 hours.
             </Text>
-  
 
-        </View>
 
-        <View style={styles.searchBar}>
-          <TouchableOpacity style={styles.searchIcon}>
-            <Ionicons
-              name="search"
-              size={24}
-              color="gray"
-            />
-          </TouchableOpacity>
+          </View>
 
-          <Text style={{
-            paddingLeft: 20,
-            paddingVertical: 10,
-            color: 'gray'
-          }}>Search inventory items....</Text>
-        </View>
+          <View style={styles.searchBar}>
+            <TouchableOpacity style={styles.searchIcon}>
+              <Ionicons
+                name="search"
+                size={24}
+                color="gray"
+              />
+            </TouchableOpacity>
 
-        <View style={styles.rowContaine}>
-          <TouchableOpacity style={styles.itemsButton}>
-            <Text style={styles.rowText}> All Items </Text>
-          </TouchableOpacity>
+            <Text style={{
+              paddingLeft: 20,
+              paddingVertical: 10,
+              color: 'gray'
+            }}>Search inventory items....</Text>
+          </View>
 
-          <TouchableOpacity style={styles.itemsButton}>
-            <Text style={styles.rowText}> 24h Priority </Text>
-          </TouchableOpacity>
+          <View style={styles.bottonRowContainer}>
 
-          <TouchableOpacity style={styles.itemsButton}>
-            <Text style={styles.rowText}> Next 3 Days </Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setSelectedButton('All Items')}
+              style={[
+                styles.itemsButton,
+                {
+                  backgroundColor:
+                    selectedButton === 'All Items' ? '#39406D' : '#D9D9D9',
+                },
+              ]}>
+              <Text
+                style={[
+                  styles.rowText,
+                  { color: selectedButton === 'All Items' ? '#fff' : '#000' },
+                ]}>
+                All Items
+              </Text>
+            </TouchableOpacity>
 
+            <TouchableOpacity
+              onPress={() => setSelectedButton('24h Priority')}
+              style={[
+                styles.itemsButton,
+                {
+                  backgroundColor:
+                    selectedButton === '24h Priority' ? '#39406D' : '#D9D9D9',
+                },
+              ]}>
+              <Text
+                style={[
+                  styles.rowText,
+                  { color: selectedButton === '24h Priority' ? '#fff' : '#000' },
+                ]}>
+                24h Priority
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => setSelectedButton('Next 3 Days')}
+              style={[
+                styles.itemsButton,
+                {
+                  backgroundColor:
+                    selectedButton === 'Next 3 Days' ? '#39406D' : '#D9D9D9',
+                },
+              ]}>
+              <Text
+                style={[
+                  styles.rowText,
+                  { color: selectedButton === 'Next 3 Days' ? '#fff' : '#000' },
+                ]}>
+                Next 3 Days
+              </Text>
+            </TouchableOpacity>
+
+          </View>
+
+
+          <View style={styles.content}>
+            <View style={styles.imgItem}>
+              <Image style={styles.img}
+                source={require('../../assets/Image/meal-sequence-blog.jpg')} />
+            </View>
+
+            <View style={styles.childContent}>
+
+              {/* <TouchableOpacity style={styles.menuBtn}>
+                <MaterialCommunityIcons
+                  style={{ paddingLeft: '30%' }}
+
+                  name="dots-vertical"
+                  size={24}
+                  color="#555"
+                />
+              </TouchableOpacity> */}
+              <Text style={styles.title}>Chicken Breast</Text>
+
+              <View style={styles.row}>
+                <View style={styles.badge}>
+                  <Text style={styles.badgeText}>CRITICAL</Text>
+                </View>
+
+                <Text style={styles.hours}>24 Hours Left</Text>
+              </View>
+
+              <View style={styles.bottomRow}>
+                <Text style={styles.info}>Qty: 5.2 kg</Text>
+                <Text style={styles.info}>Exp: Oct 24</Text>
+              </View>
+            </View>
+          </View>
+
+          <View style={styles.content}>
+            <View style={styles.imgItem}>
+              <Image style={styles.img}
+                source={require('../../assets/Image/meal-sequence-blog.jpg')} />
+            </View>
+
+            <View style={styles.childContent}>
+
+              {/* <TouchableOpacity style={styles.menuBtn}>
+                <MaterialCommunityIcons
+                  style={{ paddingLeft: '30%' }}
+
+                  name="dots-vertical"
+                  size={24}
+                  color="#555"
+                />
+              </TouchableOpacity> */}
+              <Text style={styles.title}>Chicken Breast</Text>
+
+              <View style={styles.row}>
+                <View style={styles.badge}>
+                  <Text style={styles.badgeText}>CRITICAL</Text>
+                </View>
+
+                <Text style={styles.hours}>24 Hours Left</Text>
+              </View>
+
+              <View style={styles.bottomRow}>
+                <Text style={styles.info}>Qty: 5.2 kg</Text>
+                <Text style={styles.info}>Exp: Oct 24</Text>
+              </View>
+            </View>
+          </View>
+
+
+          <View style={styles.content}>
+            <View style={styles.imgItem}>
+              <Image style={styles.img}
+                source={require('../../assets/Image/meal-sequence-blog.jpg')} />
+            </View>
+
+            <View style={styles.childContent}>
+
+              {/* <TouchableOpacity style={styles.menuBtn}>
+                <MaterialCommunityIcons
+                  style={{ paddingLeft: '30%' }}
+
+                  name="dots-vertical"
+                  size={24}
+                  color="#555"
+                />
+                </TouchableOpacity> */}
+              <Text style={styles.title}>Chicken Breast</Text>
+
+              <View style={styles.row}>
+                <View style={styles.badge}>
+                  <Text style={styles.badgeText}>CRITICAL</Text>
+                </View>
+
+                <Text style={styles.hours}>24 Hours Left</Text>
+              </View>
+
+              <View style={styles.bottomRow}>
+                <Text style={styles.info}>Qty: 5.2 kg</Text>
+                <Text style={styles.info}>Exp: Oct 24</Text>
+              </View>
+            </View>
+          </View>
         </View>
       </View>
-
-      <View style={styles.content}>
-        <View style={styles.imgItem}>
-          <Image style={styles.img}
-            source={require('../../assets/Image/imagess.jpg')} />
-        </View>
-
-        <View style={styles.childContent}>
-
-          {/* <TouchableOpacity style={styles.menuBtn}>
-         <MaterialCommunityIcons
-        style={{paddingLeft:'30%'}}
-
-          name="dots-vertical"
-          size={24}
-          color="#555"
-        />
-      </TouchableOpacity>  */}
-          <Text style={styles.title}>Chicken Breast</Text>
-
-          <View style={styles.row}>
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>CRITICAL</Text>
-            </View>
-
-            <Text style={styles.hours}>24 Hours Left</Text>
-          </View>
-
-          <View style={styles.bottomRow}>
-            <Text style={styles.info}>Qty: 5.2 kg</Text>
-            <Text style={styles.info}>Exp: Oct 24</Text>
-          </View>
-        </View>
-
-        <View style={styles.imgItem}>
-          <Image style={styles.img}
-            source={require('../../assets/Image/imagess.jpg')} />
-        </View>
-
-        <View style={styles.childContent}>
-
-          {/* <TouchableOpacity style={styles.menuBtn}>
-         <MaterialCommunityIcons
-        style={{paddingLeft:'30%'}}
-
-          name="dots-vertical"
-          size={24}
-          color="#555"
-        />
-      </TouchableOpacity>  */}
-          <Text style={styles.title}>Chicken Breast</Text>
-
-          <View style={styles.row}>
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>CRITICAL</Text>
-            </View>
-
-            <Text style={styles.hours}>24 Hours Left</Text>
-          </View>
-
-          <View style={styles.bottomRow}>
-            <Text style={styles.info}>Qty: 5.2 kg</Text>
-            <Text style={styles.info}>Exp: Oct 24</Text>
-          </View>
-        </View>
-
-        <View style={styles.childContent}>
-
-          {/* <TouchableOpacity style={styles.menuBtn}>
-         <MaterialCommunityIcons
-        style={{paddingLeft:'30%'}}
-
-          name="dots-vertical"
-          size={24}
-          color="#555"
-        />
-      </TouchableOpacity>  */}
-          <Text style={styles.title}>Chicken Breast</Text>
-
-          <View style={styles.row}>
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>CRITICAL</Text>
-            </View>
-
-            <Text style={styles.hours}>24 Hours Left</Text>
-          </View>
-
-          <View style={styles.bottomRow}>
-            <Text style={styles.info}>Qty: 5.2 kg</Text>
-            <Text style={styles.info}>Exp: Oct 24</Text>
-          </View>
-        </View>
-
-
-      </View>
-
-
-    </View>
     </ScrollView >
 
   )
@@ -199,7 +259,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
 
-    borderColor: '#d9d9e0bd',
+    borderColor: '#C7C5CF1A',
     shadowOffset: {
       width: 0,
       height: 1,
@@ -212,7 +272,8 @@ const styles = StyleSheet.create({
 
   nearText: {
     paddingLeft: 20,
-    fontSize: 22,
+    paddingTop: 15,
+    fontSize: 20,
     fontWeight: 'bold'
 
   },
@@ -224,7 +285,7 @@ const styles = StyleSheet.create({
 
   leftArrowIcon: {
     paddingLeft: 20,
-    paddingTop: 10
+    paddingTop: 20
   },
 
   alertCard: {
@@ -237,9 +298,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 16,
     // marginBottom: 20,
-    paddingBottom:20,
+    paddingBottom: 20,
 
-    shadowColor: '#000',
+    shadowColor: '#C7C5CF1A',
     shadowOffset: {
       width: 0,
       height: 1,
@@ -267,7 +328,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
 
-    boldText: {
+  boldText: {
     fontWeight: '700',
     color: '#111',
   },
@@ -275,7 +336,7 @@ const styles = StyleSheet.create({
   redText: {
     color: '#D32F2F',
     fontWeight: '700',
-    paddingTop:10,
+    paddingTop: 10,
   },
 
   searchBar: {
@@ -291,13 +352,11 @@ const styles = StyleSheet.create({
     paddingtop: 15,
     paddingLeft: 15,
     marginTop: 10,
-
-
   },
 
-  rowContaine: {
+  bottonRowContainer: {
     flexDirection: 'row',
-    marginTop: 12,
+    marginTop: 20,
   },
 
   itemsButton: {
@@ -306,7 +365,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#323B60',
     marginLeft: 10,
     borderRadius: 20,
-    marginBottom: 20,
+    marginBottom: 15,
   },
 
   rowText: {
@@ -320,14 +379,14 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 16,
     backgroundColor: 'white',
-    borderRadious: 20,
+    borderRadius: 20,
     height: 118,
-    marginTop: 23,
-    marginBottom: 20,
+    marginTop: 20,
+    marginBottom: 5,
     marginHorizontal: 15,
     flexDirection: 'row',
 
-    shadowColor: '#000',
+    shadowColor: '#C7C5CF1A',
     shadowOffset: {
       width: 0,
       height: 1,
@@ -340,8 +399,8 @@ const styles = StyleSheet.create({
 
 
   img: {
-    width: 50,
-    height: 50,
+    width: 55,
+    height: 55,
     borderRadius: 18,
   },
 
@@ -352,9 +411,10 @@ const styles = StyleSheet.create({
   },
 
   childContent: {
-    paddingLeft: '10%',
+    paddingLeft: 40,
     width: '90%',
-    paddingBottom: 30
+    paddingBottom: 30,
+    // paddingHorizontal:30,
 
   },
 
@@ -397,8 +457,10 @@ const styles = StyleSheet.create({
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 16,
-    paddingBottom: 15
+    paddingTop: 16,
+    paddingBottom: 15,
+    paddingHorizontal: 10
+
   },
 
   info: {
@@ -409,7 +471,7 @@ const styles = StyleSheet.create({
   },
 
   menuBtn: {
-    paddingtop: 12,
+    paddingTop: 12,
     paddingLeft: 30,
     // backgroundColor: 'black'
 
