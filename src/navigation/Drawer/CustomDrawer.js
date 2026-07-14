@@ -10,7 +10,7 @@ const DrawerItemData = [
     { label: "Dashboard", icon: "view-dashboard-outline", },
     { label: "Inventory", icon: "archive-outline", },
     { label: "Staff", icon: "account-group-outline" },
-    { label: "POS", icon: "desktop-classic", },
+    { label: "POS", icon: "desktop-classic", path:'Orders' },
     { label: "Orders", icon: "clipboard-list-outline", },
     { label: "Kitchen Kot", icon: "chef-hat", },
     { label: "Customers", icon: "account-multiple-outline", },
@@ -24,7 +24,7 @@ const childItem = [
     {label: "InventroyMovements"},
     {label: "PurchaseOrders"},
     {label: "Recipes"},
-    {label: "Suppliers"}
+    {label: "Suppliers", path:'Supplier'}
 ];
 
 const CustomDrawer = () => {
@@ -80,7 +80,7 @@ const CustomDrawer = () => {
                         onPress={() => {
                             setSelectedIndex(index);
 
-                            // navigation.navigate(item.path);
+                            navigation.navigate(item.path);
 
                             if (item.label === "Inventory") {
                                 if (expandedIndex === index) {
@@ -142,8 +142,11 @@ const CustomDrawer = () => {
                                         style={styles.childItem}
                                         onPress={() => {
                                             console.log(child.label);
+                                            navigation.navigate(item.path);
                                         }}
+                                        
                                     >
+                                        
                                         <Text style={styles.childText}>
                                             {child.label}
                                         </Text>

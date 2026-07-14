@@ -3,6 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
 import BottomNavigation from '../BottomTabBar/Tabs/BottomNavigation';
 import Suppliers from '../Drawer/Suppliers';
+import OrderScreen from '../../Screens/PosScreen/OrdersScreen'
 
 
 
@@ -24,6 +25,7 @@ const DrawerNavigation = () => {
       
       <Drawer.Screen name="BottomTabs" component={BottomNavigation}/>
       <Drawer.Screen name="Suppliers" component={Suppliers}/>
+      <Drawer.Screen name='Orders' component={OrderScreen}/>
     </Drawer.Navigator>
 
   );

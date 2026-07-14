@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import AntDesign from '@react-native-vector-icons/ant-design';
+import InputField from '../../components/InputField';
 
 const supplierSchema = z.object({
     businessName: z
@@ -35,12 +36,9 @@ const supplierSchema = z.object({
         .min(5, 'Address is required'),
 });
 
-const AddNewSupplierScreen = () => {
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-    } = useForm({
+const AddNewSupplierScreen = ({label, placeholder, name, keyboardType = 'default', multiline = false, }) => {
+
+    const {control, handleSubmit, formState: { errors },} = useForm({
         resolver: zodResolver(supplierSchema),
         defaultValues: {
             businessName: '',
@@ -56,7 +54,7 @@ const AddNewSupplierScreen = () => {
         console.log(data);
     };
 
-    const InputField = ({ label, placeholder, name, keyboardType = 'default', multiline = false, }) 
+    // const InputField = ({ label ='', placeholder, name,  }) 
     //     <View style={styles.inputContainer}>
     //         <Text style={styles.label}>{label}</Text>
 

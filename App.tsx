@@ -3,7 +3,7 @@ import React from 'react'
 import AppNavigator from './src/navigation/Stack/AppNavigation';
 import RootNavigation from './src/navigation/Stack/RootNavigation' 
 import { SafeAreaView } from 'react-native-safe-area-context';
-import AddNewSupplierScreen from './src/Screens/homeScreen/AddNewSupplierScreen'
+import OrdersScreen from './src/Screens/PosScreen/OrdersScreen'
 
 
 
@@ -14,7 +14,7 @@ const App = () => {
 
         {/* <AppNavigator /> */}
          {/* <RootNavigation /> */}
-        <AddNewSupplierScreen />
+        <OrdersScreen />
         
     </SafeAreaView>
     </>

@@ -66,7 +66,6 @@ const FreshFarmsScreen = () => {
             }}>Search by Invoice ID or date...</Text>
           </View>
 
-<ScrollView></ScrollView>
            <View style={styles.bottonRowContainer}>
 
             <TouchableOpacity
