@@ -56,7 +56,62 @@ const AddNewSupplierScreen = () => {
         console.log(data);
     };
 
-    const InputField = ({ label, placeholder, name, keyboardType = 'default', multiline = false, }) => (
+    const InputField = ({ label, placeholder, name, keyboardType = 'default', multiline = false, }) 
+    //     <View style={styles.inputContainer}>
+    //         <Text style={styles.label}>{label}</Text>
+
+    //         <Controller
+    //             control={control}
+    //             name={name}
+    //             render={({ field: { onChange, value } }) => (
+    //                 <TextInput
+    //                     style={[
+    //                         styles.input,
+    //                         multiline && {
+    //                             height: 100,
+    //                             textAlignVertical: 'top',
+    //                         },
+    //                     ]}
+    //                     placeholder={placeholder}
+    //                     value={value}
+    //                     onChangeText={onChange}
+    //                     keyboardType={keyboardType}
+    //                     multiline={multiline}
+    //                 />
+    //             )}
+    //         />
+
+    //         {errors[name] && (
+    //             <Text style={styles.error}>
+    //                 {errors[name]?.message}
+    //             </Text>
+    //         )}
+    //     </View>
+    // );
+
+    return (
+        <KeyboardAwareScrollView style={styles.container}>
+
+             <View style={styles.header}>
+
+                    <TouchableOpacity>
+                        <View style={styles.childHeader}>
+
+                            <AntDesign style={styles.leftArrowIcon}
+                                name="arrow-left"
+                                size={18}
+                                color="#000" />
+                            <Text style={styles.nearText}
+                            >Suppliers</Text>
+
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{ paddingBottom: 30 }}>
+
+                    {/* const InputField = ({ label, placeholder, name, keyboardType = 'default', multiline = false, }) => ( */}
         <View style={styles.inputContainer}>
             <Text style={styles.label}>{label}</Text>
 
@@ -87,29 +142,6 @@ const AddNewSupplierScreen = () => {
                 </Text>
             )}
         </View>
-    );
-
-    return (
-        <KeyboardAwareScrollView style={styles.container}>
-
-             <View style={styles.header}>
-
-                    <TouchableOpacity>
-                        <View style={styles.childHeader}>
-
-                            <AntDesign style={styles.leftArrowIcon}
-                                name="arrow-left"
-                                size={18}
-                                color="#000" />
-                            <Text style={styles.nearText}
-                            >Suppliers</Text>
-
-                        </View>
-                    </TouchableOpacity>
-                </View>
-            <ScrollView
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ paddingBottom: 30 }}>
 
                 <View style={styles.card}>
 
