@@ -161,7 +161,7 @@ const CustomDrawer = () => {
 
 {/* Logout */ }
 
-{/* <TouchableOpacity style={styles.logout}>
+<TouchableOpacity style={styles.logout}>
     <AntDesign
         name="logout"
         size={22}
@@ -169,7 +169,7 @@ const CustomDrawer = () => {
     />
 
     <Text style={styles.logoutText}>Logout</Text>
-</TouchableOpacity> */}
+</TouchableOpacity>
     </DrawerContentScrollView >
   );
 };
